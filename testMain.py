@@ -9,6 +9,7 @@ from pygame import time
 
 import testTile as t
 from minHeap import MinHeap
+from tileMinHeap import TileMinHeap
 
 #fullscreen
 screen_width = 1920
@@ -180,6 +181,15 @@ def create_tiles(tileSize_, images):
         for j in range(screen_width//tileSize_):
             tiles[i].append(t.Tile(j*tileSize_ + side_offset, i * tileSize_ + top_offset, tileSize_, images, i, j))
     return tiles
+
+def create_tiles_minheap(tileSize_, images):
+    tilesMinheap = TileMinHeap()
+    tiles_dict = {}
+    for i in range(screen_height//tileSize_):
+        for j in range(screen_width//tileSize_):
+            name = f"{i},{j}"
+            tiles_dict[name] = t.Tile(j*tileSize_ + side_offset, i * tileSize_ + top_offset, tileSize_, images, i, j)
+            tilesMinheap.push((name,tiles_dict[name].get_entropy()))
 
 
 def draw_tiles(tiles, screen):

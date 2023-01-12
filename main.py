@@ -8,8 +8,8 @@ from pygame import time
 import Tile as t
 
 #fullscreen
-screen_width = 1920
-screen_height = 1080
+screen_width = 2550
+screen_height = 1600
 tileSize = 50
 
 # # mediumscreen
@@ -30,7 +30,7 @@ tileSize = 50
 #tileSize = 50
 fullScreen = True
 
-DRAW_GRID = False
+DRAW_GRID = True
 
 OPTIMIZATION_DRAWING = True
 
@@ -97,9 +97,9 @@ def collapse():
 
         if not OPTIMIZATION_DRAWING:
             screen.fill([196, 196, 196])
-        # screen.fill([0,0,0])    # black background ?
-        # draw_tiles(tiles, screen)
-        # draw_grid(screen)
+            # screen.fill([0,0,0])    # black background ?
+            draw_tiles(tiles, screen)
+            draw_grid(screen)
 
         if tilesCollapsed < TilesToCollapse:
             # find lowest entropy tile
@@ -197,8 +197,8 @@ def add_images(images):
     images.add_image("Grey.png", 1, [all_grey, all_grey, all_grey, all_grey])
     images.add_image("RedT.png", 4, [all_grey, GRG, GRG, GRG])
     images.add_image("BlueT.png", 4, [all_grey, GBlG, GBlG, GBlG])
-    # images.add_image("RedEnd.png", 4, [all_grey, all_grey, all_grey, GRG])
-    # images.add_image("BlueEnd.png", 4, [all_grey, all_grey, all_grey, GBlG])
+    images.add_image("RedEnd.png", 4, [all_grey, all_grey, all_grey, GRG])
+    images.add_image("BlueEnd.png", 4, [all_grey, all_grey, all_grey, GBlG])
     images.add_image("RedStraight.png", 2, [all_grey, GRG, all_grey, GRG])
     images.add_image("BlueStraight.png", 2, [all_grey, GBlG, all_grey, GBlG])
     images.add_image("RedCorner.png", 4, [all_grey, GRG, GRG, all_grey])
